@@ -29,6 +29,37 @@
   Eng.Carlos kwiek - www.carloskwiek.com.br * 
  * 
  */
+
+
+/*
+ *  CONECTADO UMA ARDUINO UNO A REDE WI FI COM UM ESP 8266 ENVIANDO DADOS COM LINGUAGEM MQTT.
+
+  Node red recebe tópico hello world  da placa ARDUINO e ESP8266 usado apenas para conectar o Arduino na rede WI FI.
+  Este código tem a intenção de ajudar as pessoas a entender melhor como utilizar a linguagem MQTT                         
+                                                                                                                          
+  Neste exemplo, usei uma placa Arduino UNO original (Atmega 328) e um ESP8266-12-E para conectar o Arduino                 
+  em uma rede WI FI.                                                                                                       
+  Neste caso, estou utilizando a bibloteca Softwareserial que permite usar ports do Arduino para comunicação               
+  deixando livre os ports TX RX para usar sua porta serial para debug.                                                     
+  As portas usadas neste exemplo são a 2 e a 3, (RX, TX) para isso elas são declaradas como abaixo no codigo.              
+  O ESP8266 deve estar com o firmware AT instalado para poder funcionar neste modo.                                        
+  É importante ajustar a velocidade do ESP8266 para 9600 usando este comando AT: AT+UART_DEF=9600, 8, 1, 0, 3             
+  Com este comando você ajusta a velocidade e e os demais parâmetros, controle de fluxo, paridade etc.                     
+                                                                                                                        
+  No meu caso usei um Broker (Servidor MQTT) próprio instalado no meu computador, mas     você pode usar diversos.
+  Públicos como mosquito, mosca, etc, mas para fins didáticos eu aconselho baixar e instalar seu próprio Broker.          
+  eu utilizei o HIVEMQ que pode ser baixado gratuitamente do site desta empresa http://www.hivemq.com.
+ 
+  IMPORTANTE os ports do ESP funcionam com tensão de 3V3, já os do Arduino com 5V,                                                                                                                                                            
+  Portanto é necesario adaptar esta tensão, eu utilizei um conversor de nível, mas você pode usar por exemplo                                                                                                                        
+  um divisores resistivo se não souber calcular existem diversas calculadoras online.                                                                                                                     
+  Também usei o node-red para observar em uma interface gráfica o resultado de envio e recebimento.                        
+                                                                                                                           
+  contato@carloskwiek.com.br                                                                                               
+                                                                                                                           
+  Eng.Carlos kwiek - www.carloskwiek.com.br * 
+ * 
+ */
 #include <WiFiEsp.h>
 #include <WiFiEspClient.h>
 #include <WiFiEspUdp.h>
